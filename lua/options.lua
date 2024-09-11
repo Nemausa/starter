@@ -31,17 +31,17 @@ function SetTabOptions()
   vim.opt.expandtab = true
 end
 
--- vim.cmd([[
--- autocmd BufLeave,FocusLost * silent! wa
--- autocmd InsertLeave * silent! write
--- ]])
+vim.cmd([[
+autocmd BufLeave,FocusLost * silent! wa
+autocmd InsertLeave * silent! write
+]])
 
 vim.cmd('autocmd FileType c,cpp setlocal commentstring=//\\ %s')
 vim.api.nvim_create_augroup("SetTabOptionsGroup", { clear = true })
--- vim.api.nvim_create_autocmd({"BufReadPost", "BufNewFile"}, {
---   group = "SetTabOptionsGroup",
---   pattern = {"*.c", "*.cpp", "*.h"},
---   callback = function()
---       SetTabOptions()
---   end,
--- })
+vim.api.nvim_create_autocmd({"BufReadPost", "BufNewFile"}, {
+  group = "SetTabOptionsGroup",
+  pattern = {"*.c", "*.cpp", "*.h"},
+  callback = function()
+      SetTabOptions()
+  end,
+})
