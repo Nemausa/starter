@@ -7,7 +7,15 @@ local lspconfig = require "lspconfig"
 local servers = { "html", "cssls", "clangd", "pyright",  }
 local nvlsp = require "nvchad.configs.lspconfig"
 local capabilities = require("nvchad.configs.lspconfig").capabilities
-vim.diagnostic.disable()
+vim.diagnostic.config({
+  virtual_text = false,  -- 禁用行内错误提示
+  signs = false,         -- 禁用左侧符号显示
+  underline = false,     -- 禁用错误的下划线
+  update_in_insert = false,  -- 插入模式下不更新诊断
+  severity_sort = true,   -- 按严重性排序诊断
+  float = { border = "rounded" },  -- 配置浮动窗口边框样式（可选）
+})
+
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
