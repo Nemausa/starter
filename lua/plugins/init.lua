@@ -15,14 +15,18 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "vim", "lua", "vimdoc",
-        "html", "css","c", "cpp", 
-        "python", "cmake", "markdown", 
-        "markdown_inline",
-      },
-    },
+    event = {"BufReadPost", "BufNewFile"},
+    configs = function()
+      require "configs.treesitter"
+    end,
+  },
+  {
+    'williamboman/mason.nvim',
+    config = function()
+      require('mason').setup({
+        automatic_installation = true,
+      })
+    end
   },
   'Nemausa/friendly-snippets',
   'mfussenegger/nvim-dap',
