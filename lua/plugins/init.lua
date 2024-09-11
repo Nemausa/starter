@@ -53,5 +53,15 @@ return {
     cmd = "CarbonNow",
     ---@param opts cn.ConfigSchema
     opts = { [[ your custom config here ]] }
-  }
+  },
+  {
+    'iamcco/markdown-preview.nvim',
+    event = "BufRead",
+    run = 'cd app && npm install',
+    config = function()
+      vim.g.mkdp_auto_start = 0  -- Do not auto start preview
+      vim.g.mkdp_auto_close = 1  -- Auto close preview when you exit Neovim
+      vim.g.mkdp_refresh_slow = 1  -- Auto-refresh on save
+    end
+  },
 }
