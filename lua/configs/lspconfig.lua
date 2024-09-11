@@ -4,8 +4,10 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls" }
+local servers = { "html", "cssls", "clangd", "pyright",  }
 local nvlsp = require "nvchad.configs.lspconfig"
+local capabilities = require("nvchad.configs.lspconfig").capabilities
+vim.diagnostic.disable()
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
@@ -22,3 +24,28 @@ end
 --   on_init = nvlsp.on_init,
 --   capabilities = nvlsp.capabilities,
 -- }
+
+-- clangd for C/C++
+lspconfig.clangd.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "clangd", "--background-index" },
+  filetypes = { "c", "cpp", "objc", "objcpp" },
+  root_dir = lspconfig.util.root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
+}
+
+-- Pyright for Python
+lspconfig.pyright.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "python" },
+  root_dir = lspconfig.util.root_pattern(".git", "pyrightconfig.json"),
+}
+
+-- Marksman for Markdown
+lspconfig.marksman.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "markdown" },
+  root_dir = lspconfig.util.root_pattern(".git", ".marksman.json"),
+}

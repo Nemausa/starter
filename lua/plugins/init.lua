@@ -13,13 +13,21 @@ return {
     end,
   },
 
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim", "lua", "vimdoc",
+        "html", "css","c", "cpp", 
+        "python", "cmake", "markdown", 
+        "markdown_inline",
+      },
+    },
+  },
+  'mfussenegger/nvim-dap',
+  'mfussenegger/nvim-dap-python',
+  'rcarriga/nvim-dap-ui',
+  'theHamsta/nvim-dap-virtual-text',
+  'nvim-neotest/nvim-nio',
+
 }
