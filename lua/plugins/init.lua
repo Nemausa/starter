@@ -24,6 +24,7 @@ return {
       },
     },
   },
+  'Nemausa/friendly-snippets',
   'mfussenegger/nvim-dap',
   'mfussenegger/nvim-dap-python',
   'rcarriga/nvim-dap-ui',
