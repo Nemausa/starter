@@ -9,7 +9,7 @@ local disable_treesitter_for_large_files = function(bufnr)
 end
 
 require'nvim-treesitter.configs'.setup {
-   -- ensure_installed = { "c", "cpp", "python", "cmake", "markdown", "markdown_inline", "lua", "marksman", "server" },
+   ensure_installed = { "c", "cpp", "python", "cmake", "markdown", "markdown_inline", "lua", "marksman", "server" },
   highlight = {
       enable = true,
       disable = function(lang, bufnr)
@@ -17,3 +17,8 @@ require'nvim-treesitter.configs'.setup {
       end,
   },
 }
+
+require('auto-save').setup({
+    enable = true,
+    events = {"InsertLeave", "TextChanged"},
+})
