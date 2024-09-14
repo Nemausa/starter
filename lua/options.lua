@@ -32,10 +32,13 @@ function SetTabOptions()
   vim.opt.expandtab = true
 end
 
-vim.cmd([[
-autocmd BufLeave,FocusLost * silent! wa!
-autocmd InsertLeave * silent! write
-]])
+vim.cmd [[
+    augroup AutoSave
+        autocmd!
+        autocmd TextChanged,TextChangedI * silent! lua vim.cmd('write!')
+    augroup END
+]]
+
 
 vim.cmd('autocmd FileType c,cpp setlocal commentstring=//\\ %s')
 vim.api.nvim_create_augroup("SetTabOptionsGroup", { clear = true })

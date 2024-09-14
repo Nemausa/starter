@@ -64,5 +64,4 @@ return {
       vim.g.mkdp_refresh_slow = 1  -- Auto-refresh on save
     end
   },
-  'Pocco81/auto-save.nvim',
 }

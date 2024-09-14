@@ -17,8 +17,3 @@ require'nvim-treesitter.configs'.setup {
       end,
   },
 }
-
-require('auto-save').setup({
-    enable = true,
-    events = {"InsertLeave", "TextChanged"},
-})
