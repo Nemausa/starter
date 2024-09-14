@@ -11,6 +11,8 @@ map("n", "<Esc>", "<cmd>noh<CR>", { desc = "General Clear highlights" })
 
 -- Comment
 map('n', '<leader>cf', ':!clang-format -i %<CR><CR>', { noremap = true, silent = true })
+map('n', '<leader>ba', ':bufdo bd <CR>', { desc = "close all buffers",  noremap = true, silent = true })
+map('n', '<leader>bn', ':bnext | bd#<CR>', { desc = "close current tab and buffer goto next",  noremap = true, silent = true })
 
 -- Gitsigns
 map("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {})
