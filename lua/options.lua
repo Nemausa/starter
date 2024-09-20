@@ -37,7 +37,7 @@ end
 vim.cmd [[
     augroup AutoSave
         autocmd!
-        autocmd TextChanged,TextChangedI * silent! lua vim.cmd('write!')
+        autocmd BufLeave * silent! lua vim.cmd('write!')
     augroup END
 ]]
 
