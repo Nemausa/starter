@@ -8,6 +8,8 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 map('i', 'jj', '<Esc>')
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "General Clear highlights" })
+map('n', 'h', "col('.') == 1 ? '' : 'h'", { noremap = true, expr = true })
+map('n', 'l', "col('.') == col('$') - 1 ? '' : 'l'", { noremap = true, expr = true })
 
 -- Comment
 map('n', '<leader>cf', ':!clang-format -i %<CR><CR>', { noremap = true, silent = true })
