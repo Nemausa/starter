@@ -72,3 +72,7 @@ end, {})
 map('n', '<leader>do', ':CustomDiffviewOpen<CR>')
 map('n', '<leader>dc', ':DiffviewClose<CR>')
 map('v', '<leader>cc', ':CarbonNow<CR>', { noremap = true, silent = true })
+
+
+
+
